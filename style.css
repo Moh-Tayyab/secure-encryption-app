@@ -1,261 +1,417 @@
-/* Main theme colors */
+/* Modern Professional Theme */
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --background-color: #f8fafc;
-    --text-color: #000000;
-    --success-color: #10b981;
-    --error-color: #ef4444;
-    --warning-color: #f59e0b;
-    --border-color: #e2e8f0;
-    --card-bg: #ffffff;
-    --sidebar-bg: #ffffff;
-    --input-bg: #ffffff;
-    --text-muted: #64748b;
-    --toggle-on: #2563eb;
-    --toggle-off: #f1f5f9;
-    --toggle-handle: #ffffff;
-    --toggle-border: #e2e8f0;
-    --toggle-text: #000000;
+    --primary-color: #1a237e;      /* Deep Indigo */
+    --secondary-color: #0d47a1;    /* Dark Blue */
+    --accent-color: #2196f3;       /* Bright Blue */
+    --background-color: #f5f7fa;   /* Light Gray */
+    --text-color: #2c3e50;        /* Dark Slate */
+    --success-color: #65be69;      /* Dark Green */
+    --error-color: #c62828;        /* Dark Red */
+    --warning-color: #f57f17;      /* Dark Orange */
+    --border-color: #b6b0b0;      
+    --card-bg: #ffffff;           
+    --gradient-primary: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+    --gradient-secondary: linear-gradient(135deg, #848684 0%, #757575 100%);
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --login-text: #1a237e;         /* Dark text for login */
+    --login-bg: #ffffff;           /* White background for login */
 }
 
-/* Global styles */
+/* Modern Font Setup */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 .stApp {
-    background-color: var(--background-color) !important;
+    background: var(--background-color) !important;
+    font-family: 'Roboto', sans-serif !important;
+    line-height: 1.6 !important;
     color: var(--text-color) !important;
-    font-family: 'Inter', sans-serif !important;
 }
 
-/* Text styles */
-h1, h2, h3, h4, h5, h6 {
+/* Header Styling */
+h1 {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 700 !important;
+    color: var(--primary-color) !important;
+    margin-bottom: 2rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 3px solid var(--accent-color) !important;
+}
+
+h2, h3 {
+    font-family: 'Roboto', sans-serif !important;
+    color: var(--primary-color) !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Metric Cards */
+.metric-card {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    text-align: center !important;
+    box-shadow: var(--box-shadow) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px) !important;
+}
+
+.metric-value {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.metric-label {
+    font-size: 1rem !important;
+    opacity: 0.9 !important;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: var(--card-bg) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    text-align: center !important;
+    box-shadow: var(--box-shadow) !important;
+    transition: transform 0.3s ease !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Custom Badges */
+.custom-badge {
+    background: var(--gradient-secondary) !important;
+    color: white !important;
+    padding: 0.4rem 1rem !important;
+    border-radius: 20px !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    display: inline-block !important;
+    margin-top: 1rem !important;
+}
+
+/* Buttons */
+.stButton > button {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.8rem 1.5rem !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Sidebar */
+.css-1d391kg {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+}
+
+/* Form Elements */
+.stTextInput>div>div>input,
+.stTextArea>div>div>textarea {
     color: var(--text-color) !important;
+    font-family: 'Roboto', sans-serif !important;
+    border-radius: 8px !important;
+    border: 2px solid var(--border-color) !important;
+    padding: 0.8rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.stTextInput>div>div>input:focus,
+.stTextArea>div>div>textarea:focus {
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1) !important;
+}
+
+/* Info Messages */
+.stAlert {
+    background: var(--success-color) !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    font-family: 'Roboto', sans-serif !important;
+    color: white !important;
+    margin: 1rem 0 !important;
+    box-shadow: 0 2px 4px rgba(46, 125, 50, 0.2) !important;
+}
+
+.stAlert.success {
+    background: var(--success-color) !important;
+    color: white !important;
+}
+
+.stAlert.info {
+    background: var(--accent-color) !important;
+    color: white !important;
+}
+
+.stAlert.warning {
+    background: var(--warning-color) !important;
+    color: white !important;
+}
+
+.stAlert.error {
+    background: var(--error-color) !important;
+    color: white !important;
+}
+
+/* Alert Icons */
+.stAlert.success:before {
+    color: white !important;
+    content: "✓" !important;
+    margin-right: 0.5rem !important;
+    font-weight: bold !important;
+}
+
+.stAlert.info:before {
+    color: white !important;
+    content: "ℹ" !important;
+    margin-right: 0.5rem !important;
+    font-weight: bold !important;
+}
+
+.stAlert.warning:before {
+    color: white !important;
+    content: "⚠" !important;
+    margin-right: 0.5rem !important;
+    font-weight: bold !important;
+}
+
+.stAlert.error:before {
+    color: white !important;
+    content: "✕" !important;
+    margin-right: 0.5rem !important;
+    font-weight: bold !important;
+}
+
+/* Container */
+.stContainer {
+    background: var(--card-bg) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    box-shadow: var(--box-shadow) !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Login Page Specific Styles */
+.login-container {
+    background: var(--login-bg) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    box-shadow: var(--box-shadow) !important;
+    margin: 2rem auto !important;
+    max-width: 500px !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.login-title {
+    color: var(--primary-color) !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.8rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center !important;
+}
+
+.login-subtitle {
+    color: var(--text-color) !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+    opacity: 0.9 !important;
+}
+
+.login-input {
+    background: var(--login-bg) !important;
+    border: 2px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    padding: 0.8rem 1rem !important;
+    width: 100% !important;
+    margin-bottom: 1rem !important;
+    color: var(--text-color) !important;
+    font-size: 1rem !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.login-input:focus {
+    border-color: var(--success-color) !important;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1) !important;
+}
+
+.login-button {
+    background: var(--gradient-secondary) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.8rem 2rem !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+    margin-top: 1rem !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.login-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(46, 125, 50, 0.2) !important;
+}
+
+.login-error {
+    color: var(--error-color) !important;
+    background: rgba(198, 40, 40, 0.1) !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    margin: 1rem 0 !important;
+    text-align: center !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.login-success {
+    color: var(--success-color) !important;
+    background: rgba(46, 125, 50, 0.1) !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    margin: 1rem 0 !important;
+    text-align: center !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.login-warning {
+    color: var(--warning-color) !important;
+    background: rgba(10, 6, 0, 0.1) !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    margin: 1rem 0 !important;
+    text-align: center !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* Markdown Content */
+.stMarkdown {
+    color: rgb(163, 158, 158) !important;
+}
+
+/* About Section Specific Styles */
+.stMarkdown h3 {
+    color: #FFD700 !important;  /* Golden color */
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.4rem !important;
+    margin-bottom: 1rem !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.stMarkdown p {
+    color: rgb(155, 152, 152) !important;
+    font-family: 'Roboto', sans-serif !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+}
+
+.stMarkdown ul {
+    color: white !important;
+    margin-left: 1rem !important;
+    padding-left: 1rem !important;
+}
+
+.stMarkdown li {
+    color: white !important;
+    margin-bottom: 0.5rem !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.stMarkdown strong {
+    color: white !important;
     font-weight: 600 !important;
 }
 
-p, span, div {
-    color: var(--text-color) !important;
-}
-
-/* Sidebar styling */
-.css-1d391kg {
-    background-color: var(--sidebar-bg) !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-    padding: 1rem !important;
-}
-
-/* Button styling */
-.stButton>button {
-    background-color: var(--primary-color) !important;
+.stMarkdown em {
     color: white !important;
-    border-radius: 8px !important;
-    padding: 0.5rem 1rem !important;
-    font-weight: 500 !important;
-    transition: all 0.2s !important;
-    border: none !important;
-    width: 100% !important;
+    font-style: italic !important;
 }
 
-.stButton>button:hover {
-    background-color: var(--secondary-color) !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Form elements */
-.stTextInput>div>div>input,
-.stTextArea>div>div>textarea {
-    border-radius: 8px !important;
-    border: 1px solid var(--border-color) !important;
-    padding: 0.75rem !important;
-    background-color: var(--input-bg) !important;
-    color: var(--text-color) !important;
-}
-
-.stTextInput>div>div>input::placeholder,
-.stTextArea>div>div>textarea::placeholder {
-    color: var(--text-muted) !important;
-}
-
-/* Card styling */
-.css-1v0mbdj {
-    background-color: var(--card-bg) !important;
-    border-radius: 12px !important;
+/* Sidebar Markdown */
+.sidebar .stMarkdown {
+    background: var(--gradient-primary) !important;
     padding: 1.5rem !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-    margin-bottom: 1rem !important;
-}
-
-/* Alert messages */
-.stAlert {
     border-radius: 8px !important;
-    padding: 1rem !important;
-    margin-bottom: 1rem !important;
+    margin: 1rem 0 !important;
 }
 
-.stAlert-success {
-    background-color: var(--success-color) !important;
+.sidebar .stMarkdown h3 {
+    color: #FFD700 !important;  /* Golden color */
+    border-bottom: 2px solid rgba(255, 215, 0, 0.3) !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.sidebar .stMarkdown p {
     color: white !important;
+    margin-bottom: 0.8rem !important;
 }
 
-.stAlert-error {
-    background-color: var(--error-color) !important;
+.sidebar .stMarkdown ul {
     color: white !important;
+    margin-left: 1rem !important;
+    padding-left: 1rem !important;
 }
 
-.stAlert-warning {
-    background-color: var(--warning-color) !important;
+.sidebar .stMarkdown li {
     color: white !important;
+    margin-bottom: 0.4rem !important;
+    position: relative !important;
 }
 
-/* Metric cards */
-.css-1v0mbdj {
-    background-color: var(--card-bg) !important;
-    border-radius: 12px !important;
-    padding: 1.5rem !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+.sidebar .stMarkdown li:before {
+    content: "•" !important;
+    color: #FFD700 !important;  /* Golden bullet points */
+    position: absolute !important;
+    left: -1rem !important;
 }
 
-/* Navigation */
-.css-1v0mbdj {
-    background-color: var(--card-bg) !important;
-    border-radius: 12px !important;
-    padding: 1.5rem !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+/* Sidebar Title */
+.sidebar .stTitle {
+    color: #FFD700 !important;  /* Golden color */
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1.8rem !important;
+    text-align: center !important;
+    margin-bottom: 1.5rem !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    padding-bottom: 0.5rem !important;
 }
 
-/* Custom containers */
-.stContainer {
-    background-color: var(--card-bg) !important;
-    border-radius: 12px !important;
-    padding: 2rem !important;
-    margin-bottom: 2rem !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+.sidebar .stTitle:after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 50% !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, transparent, #FFD700, transparent) !important;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 8px !important;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--background-color) !important;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color) !important;
-    border-radius: 4px !important;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color) !important;
-}
-
-/* Form labels */
-.stMarkdown p {
-    color: var(--text-color) !important;
-    font-weight: 500 !important;
+/* Navigation Title Icon */
+.sidebar .stTitle:before {
+    content: "🔐" !important;
+    display: block !important;
+    font-size: 2rem !important;
     margin-bottom: 0.5rem !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
-
-/* Radio buttons */
-.stRadio > label {
-    color: var(--text-color) !important;
-    font-weight: 500 !important;
-}
-
-/* Checkboxes */
-.stCheckbox > label {
-    color: var(--text-color) !important;
-}
-
-/* Select boxes */
-.stSelectbox > label {
-    color: var(--text-color) !important;
-    font-weight: 500 !important;
-}
-
-/* File uploader */
-.stFileUploader > label {
-    color: var(--text-color) !important;
-    font-weight: 500 !important;
-}
-
-/* Progress bar */
-.stProgress > div > div {
-    background-color: var(--primary-color) !important;
-}
-
-/* Tooltips */
-.tooltip {
-    background-color: var(--card-bg) !important;
-    color: var(--text-color) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 8px !important;
-    padding: 0.5rem !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Toggle Slider Styling */
-.stToggle {
-    margin-bottom: 1rem !important;
-}
-
-.stToggle > label {
-    color: var(--toggle-text) !important;
-    font-weight: 500 !important;
-    margin-bottom: 0.5rem !important;
-}
-
-/* Toggle Track */
-.stToggle > div > div {
-    background-color: var(--toggle-off) !important;
-    border: 1px solid var(--toggle-border) !important;
-    border-radius: 9999px !important;
-    transition: all 0.3s ease !important;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Toggle Handle */
-.stToggle > div > div > div {
-    background-color: var(--toggle-handle) !important;
-    border: 1px solid var(--toggle-border) !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-    transition: all 0.3s ease !important;
-}
-
-/* Toggle Active State */
-.stToggle > div > div[data-checked="true"] {
-    background-color: var(--toggle-on) !important;
-    border-color: var(--toggle-on) !important;
-    box-shadow: none !important;
-}
-
-/* Toggle Hover Effects */
-.stToggle > div > div:hover {
-    border-color: var(--primary-color) !important;
-    background-color: #f8fafc !important;
-}
-
-.stToggle > div > div[data-checked="true"]:hover {
-    background-color: var(--secondary-color) !important;
-    border-color: var(--secondary-color) !important;
-}
-
-/* Toggle Focus State */
-.stToggle > div > div:focus {
-    outline: 2px solid var(--primary-color) !important;
-    outline-offset: 2px !important;
-}
-
-/* Toggle Disabled State */
-.stToggle > div > div[disabled] {
-    opacity: 0.5 !important;
-    cursor: not-allowed !important;
-    background-color: #f1f5f9 !important;
-}
-
-/* Toggle Text */
-.stToggle span {
-    color: var(--toggle-text) !important;
-    font-weight: 500 !important;
-} 

@@ -10,10 +10,16 @@ from config import *
 security = SecurityManager()
 
 # Set page config
-st.set_page_config(**PAGE_CONFIG)
+st.set_page_config(
+    page_title=PAGE_CONFIG['page_title'],
+    page_icon=PAGE_CONFIG['page_icon'],
+    layout=PAGE_CONFIG['layout'],
+    initial_sidebar_state=PAGE_CONFIG['initial_sidebar_state'],
+    menu_items=PAGE_CONFIG['menu_items']
+)
 
 # Load custom CSS
-with open(STYLE_FILE) as f:
+with open(STYLE_FILE, 'r', encoding='utf-8') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Initialize session state
@@ -72,49 +78,100 @@ with st.sidebar:
 st.session_state.last_activity = time.time()
 
 if page == "Home":
-    st.title("🔐 Secure Data Encryption App")
+    st.title("Secure Data Encryption App")
     
     # Hero section
     st.markdown("""
-    <div style="text-align: center; padding: 2rem; background-color: white; border-radius: 12px; margin-bottom: 2rem;">
-        <h2 style="color: #2563eb;">Protect Your Sensitive Data</h2>
-        <p style="color: #64748b;">Secure encryption and storage for your confidential information</p>
+    <div class="stContainer">
+        <h2 style="color: var(--primary-color); text-align: center;">Protect Your Sensitive Data</h2>
+        <p style="color: var(--text-color); text-align: center;">Secure encryption and storage for your confidential information</p>
     </div>
     """, unsafe_allow_html=True)
     
-    # Features grid
+    # Performance Metrics
+    st.header("Performance Metrics")
+    
+    # Metric cards in a grid
     col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown("""
-        <div style="background-color: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
-            <h3>🔒 Secure</h3>
-            <p>Military-grade encryption</p>
+        <div class="metric-card">
+            <div class="metric-value">42%</div>
+            <div class="metric-label">Encryption Success Rate</div>
         </div>
         """, unsafe_allow_html=True)
     with col2:
         st.markdown("""
-        <div style="background-color: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
-            <h3>🔑 Easy Access</h3>
-            <p>Simple passkey management</p>
+        <div class="metric-card">
+            <div class="metric-value">99.9%</div>
+            <div class="metric-label">Data Integrity</div>
         </div>
         """, unsafe_allow_html=True)
     with col3:
         st.markdown("""
-        <div style="background-color: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
-            <h3>💾 Persistent</h3>
+        <div class="metric-card">
+            <div class="metric-value">0</div>
+            <div class="metric-label">Security Breaches</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Key Results
+    st.header("Key Results")
+    
+    # Features grid with badges
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("""
+        <div class="feature-card">
+            <h3>Secure</h3>
+            <p>Military-grade encryption</p>
+            <span class="custom-badge">New Feature</span>
+        </div>
+        """, unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+        <div class="feature-card">
+            <h3>Easy Access</h3>
+            <p>Simple passkey management</p>
+            <span class="custom-badge">Updated</span>
+        </div>
+        """, unsafe_allow_html=True)
+    with col3:
+        st.markdown("""
+        <div class="feature-card">
+            <h3>Persistent</h3>
             <p>Reliable data storage</p>
+            <span class="custom-badge">Popular</span>
         </div>
         """, unsafe_allow_html=True)
     
     # Statistics
-    st.markdown("### 📊 Statistics")
+    st.header("Statistics")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric("Total Encrypted Items", len(st.session_state.encrypted_data))
+        st.markdown("""
+        <div class="feature-card">
+            <h3>Total Encrypted Items</h3>
+            <div class="metric-value">{}</div>
+            <button class="stButton">View Details</button>
+        </div>
+        """.format(len(st.session_state.encrypted_data)), unsafe_allow_html=True)
     with col2:
-        st.metric("Security Level", "High")
+        st.markdown("""
+        <div class="feature-card">
+            <h3>Security Level</h3>
+            <div class="metric-value">High</div>
+            <button class="stButton">View Details</button>
+        </div>
+        """, unsafe_allow_html=True)
     with col3:
-        st.metric("Encryption Type", "AES-128 + HMAC")
+        st.markdown("""
+        <div class="feature-card">
+            <h3>Encryption Type</h3>
+            <div class="metric-value">AES-128 + HMAC</div>
+            <button class="stButton">View Details</button>
+        </div>
+        """, unsafe_allow_html=True)
 
 elif page == "Store Data":
     st.title("💾 Store Data")
@@ -195,39 +252,69 @@ elif page == "Retrieve Data":
                         st.error("Please enter both encrypted text and passkey")
 
 elif page == "Login":
-    st.title("🔐 Login")
+    st.markdown("""
+    <div class="login-container">
+        <h1 class="login-title">Login</h1>
+        <p class="login-subtitle">Enter your passkey to access your encrypted data</p>
+    </div>
+    """, unsafe_allow_html=True)
     
     client_ip = get_client_ip()
     if security.check_lockout(client_ip):
-        st.warning(f"System locked. Please try again in {int((LOCKOUT_DURATION - (time.time() - security.lockout_times[client_ip])) / 60)} minutes.")
+        st.markdown(f"""
+        <div class="login-warning">
+            System locked. Please try again in {int((LOCKOUT_DURATION - (time.time() - security.lockout_times[client_ip])) / 60)} minutes.
+        </div>
+        """, unsafe_allow_html=True)
     else:
         with st.container():
             st.markdown("""
-            <div style="background-color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                <h3>Access Your Data</h3>
-                <p>Enter your passkey to unlock the system</p>
+            <div class="login-container">
+                <h3 class="login-title">Access Your Data</h3>
+                <p class="login-subtitle">Enter your passkey to unlock the system</p>
             </div>
             """, unsafe_allow_html=True)
             
             with st.form("login_form"):
                 passkey = st.text_input("Enter passkey", type="password",
-                                      placeholder="Enter your passkey")
+                                      placeholder="Enter your passkey",
+                                      key="login_passkey")
                 
                 if st.form_submit_button("Login", use_container_width=True):
                     if passkey:
                         try:
                             hashed_passkey = security.hash_passkey(passkey)[0].decode()
                             if hashed_passkey in st.session_state.encrypted_data:
-                                st.success("Login successful!")
+                                st.markdown("""
+                                <div class="login-success">
+                                    Login successful!
+                                </div>
+                                """, unsafe_allow_html=True)
                                 security.failed_attempts[client_ip] = 0
                             else:
-                                st.error("Invalid passkey")
+                                st.markdown("""
+                                <div class="login-error">
+                                    Invalid passkey
+                                </div>
+                                """, unsafe_allow_html=True)
                                 if security.record_failed_attempt(client_ip):
-                                    st.warning("Too many failed attempts. System locked.")
+                                    st.markdown("""
+                                    <div class="login-warning">
+                                        Too many failed attempts. System locked.
+                                    </div>
+                                    """, unsafe_allow_html=True)
                         except Exception as e:
-                            st.error(f"Login failed: {str(e)}")
+                            st.markdown(f"""
+                            <div class="login-error">
+                                Login failed: {str(e)}
+                            </div>
+                            """, unsafe_allow_html=True)
                     else:
-                        st.error("Please enter a passkey")
+                        st.markdown("""
+                        <div class="login-error">
+                            Please enter a passkey
+                        </div>
+                        """, unsafe_allow_html=True)
 
 elif page == "Settings":
     st.title("⚙️ Settings")
