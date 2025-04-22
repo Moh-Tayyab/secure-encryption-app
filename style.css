@@ -1,0 +1,261 @@
+/* Main theme colors */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --background-color: #f8fafc;
+    --text-color: #000000;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --warning-color: #f59e0b;
+    --border-color: #e2e8f0;
+    --card-bg: #ffffff;
+    --sidebar-bg: #ffffff;
+    --input-bg: #ffffff;
+    --text-muted: #64748b;
+    --toggle-on: #2563eb;
+    --toggle-off: #f1f5f9;
+    --toggle-handle: #ffffff;
+    --toggle-border: #e2e8f0;
+    --toggle-text: #000000;
+}
+
+/* Global styles */
+.stApp {
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Text styles */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color) !important;
+    font-weight: 600 !important;
+}
+
+p, span, div {
+    color: var(--text-color) !important;
+}
+
+/* Sidebar styling */
+.css-1d391kg {
+    background-color: var(--sidebar-bg) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    padding: 1rem !important;
+}
+
+/* Button styling */
+.stButton>button {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1rem !important;
+    font-weight: 500 !important;
+    transition: all 0.2s !important;
+    border: none !important;
+    width: 100% !important;
+}
+
+.stButton>button:hover {
+    background-color: var(--secondary-color) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Form elements */
+.stTextInput>div>div>input,
+.stTextArea>div>div>textarea {
+    border-radius: 8px !important;
+    border: 1px solid var(--border-color) !important;
+    padding: 0.75rem !important;
+    background-color: var(--input-bg) !important;
+    color: var(--text-color) !important;
+}
+
+.stTextInput>div>div>input::placeholder,
+.stTextArea>div>div>textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Card styling */
+.css-1v0mbdj {
+    background-color: var(--card-bg) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Alert messages */
+.stAlert {
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.stAlert-success {
+    background-color: var(--success-color) !important;
+    color: white !important;
+}
+
+.stAlert-error {
+    background-color: var(--error-color) !important;
+    color: white !important;
+}
+
+.stAlert-warning {
+    background-color: var(--warning-color) !important;
+    color: white !important;
+}
+
+/* Metric cards */
+.css-1v0mbdj {
+    background-color: var(--card-bg) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Navigation */
+.css-1v0mbdj {
+    background-color: var(--card-bg) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Custom containers */
+.stContainer {
+    background-color: var(--card-bg) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    margin-bottom: 2rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color) !important;
+    border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color) !important;
+}
+
+/* Form labels */
+.stMarkdown p {
+    color: var(--text-color) !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Radio buttons */
+.stRadio > label {
+    color: var(--text-color) !important;
+    font-weight: 500 !important;
+}
+
+/* Checkboxes */
+.stCheckbox > label {
+    color: var(--text-color) !important;
+}
+
+/* Select boxes */
+.stSelectbox > label {
+    color: var(--text-color) !important;
+    font-weight: 500 !important;
+}
+
+/* File uploader */
+.stFileUploader > label {
+    color: var(--text-color) !important;
+    font-weight: 500 !important;
+}
+
+/* Progress bar */
+.stProgress > div > div {
+    background-color: var(--primary-color) !important;
+}
+
+/* Tooltips */
+.tooltip {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    padding: 0.5rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Toggle Slider Styling */
+.stToggle {
+    margin-bottom: 1rem !important;
+}
+
+.stToggle > label {
+    color: var(--toggle-text) !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Toggle Track */
+.stToggle > div > div {
+    background-color: var(--toggle-off) !important;
+    border: 1px solid var(--toggle-border) !important;
+    border-radius: 9999px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Toggle Handle */
+.stToggle > div > div > div {
+    background-color: var(--toggle-handle) !important;
+    border: 1px solid var(--toggle-border) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Toggle Active State */
+.stToggle > div > div[data-checked="true"] {
+    background-color: var(--toggle-on) !important;
+    border-color: var(--toggle-on) !important;
+    box-shadow: none !important;
+}
+
+/* Toggle Hover Effects */
+.stToggle > div > div:hover {
+    border-color: var(--primary-color) !important;
+    background-color: #f8fafc !important;
+}
+
+.stToggle > div > div[data-checked="true"]:hover {
+    background-color: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+}
+
+/* Toggle Focus State */
+.stToggle > div > div:focus {
+    outline: 2px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+}
+
+/* Toggle Disabled State */
+.stToggle > div > div[disabled] {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    background-color: #f1f5f9 !important;
+}
+
+/* Toggle Text */
+.stToggle span {
+    color: var(--toggle-text) !important;
+    font-weight: 500 !important;
+} 
